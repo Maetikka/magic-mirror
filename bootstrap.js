@@ -5,14 +5,12 @@ var mirror = new MagicMirror();
 var gestureAnalyzer;
 
 mirror.start(function() {
-/*
 	gestureAnalyzer = new GestureAnalyzer();
 	gestureAnalyzer.on("gesture", function(gesture) {
 		log("GestureAnalyzer> Gesture:", gesture);
 
 		mirror.handleGesture(gesture);
 	});
-//*/
 });
 
 

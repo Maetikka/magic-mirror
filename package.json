@@ -7,6 +7,8 @@
   },
   "author": "La Fine Équipe",
   "dependencies": {
+    "express": "*",
+    "lodash": "*",
     "async": "^1.4.2",
     "body-parser": "^1.14.1",
     "method-override": "^2.3.5",

@@ -1,3 +1,19 @@
+## Install runtime dependency
+
+	> sudo apt-get install npm
+	> sudo apt-get install nodejs-legacy
+	> npm install
+	> cd source/front-end
+        > bower install
+
+## Setup Serial port port config (TTY)
+
+Make the file `source/back-end/GestureAnalyzer.js` point to the correct serial port to reach the Arduino.
+
+Ex.
+
+	DEFAULT_TTY_PORT = "/dev/ttyACM0";
+
 ## Gotchas. Default recording device need some config to work
 
 ```bash
@@ -5,6 +21,18 @@
 > export AUDIODEV=hw:1,0
 > amixer cset numid=3 2
 ```
+
+## Where to store ALSA custom configuration to identify playback device
+
+A must read: [http://www.alsa-project.org/main/index.php/Asoundrc]
+
+Then use file `~/.asoundrc` to store default playback card config
+
+Example:
+
+	> vi ~/.asoundrc
+	> sudo /etc/init.d/alsa-utils reset
+
 
 ## Sample session with `arecord`
 
@@ -76,8 +104,17 @@
 	Recording WAVE 'abc.wav' : Signed 16 bit Little Endian, Rate 8000 Hz, Stereo
 	^CAborted by signal Interrupt...
 
-# Got It! GOOD
+	# Got It! GOOD
 
-## Setup
+User your `hw:2,0` string in source file `source/back-end/SoundRecorder.js` at line.
+
+	ChildProcess.exec(command, {env: {AUDIODEV: "hw:2,0"}}, function(error, stdout, stderr) {
+
+
+## Nuance Speach Setup
 
 Edit `configuration.json` to provide your Nuance credential.
+
+## Launching the app
+
+Use the command `node bootstrap.js`

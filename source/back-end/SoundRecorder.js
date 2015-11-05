@@ -28,8 +28,12 @@ SoundRecorder.prototype.record = function record(options, callback) {
 
 	log("SoundRecorder> Command:", command);
 
-	ChildProcess.exec(command, function(error, output) {
-		if(error) {
+	ChildProcess.exec(command, {env: {AUDIODEV: "hw:1,0"}}, function(error, stdout, stderr) {
+		console.log('SndRec :: stdout => ' + stdout);
+		console.log('SndRec :: stderr => ' + stderr);
+
+		if (error) {
+			console.log('SndRec :: error => ' + error);
 			return exit(error);
 		}
 
