@@ -1,1 +1,6 @@
-./configuration-Jeremy.json
+{
+   "Nuance" : {
+      "applicationKey" : "<put your hex digits string here ...>",
+      "applicationId" : "<put here something like `NMDPTRIAL_email_domain_com20151224235959`"
+   }
+}
