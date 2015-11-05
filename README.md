@@ -117,4 +117,6 @@ Edit `configuration.json` to provide your Nuance credential.
 
 ## Launching the app
 
-Use the command `node bootstrap.js`
+Use the command `node bootstrap.js`.
+
+Alternatively, just call the `./go.sh` script which does that.
