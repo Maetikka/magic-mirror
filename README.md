@@ -1,12 +1,30 @@
-## Install runtime dependency
+## Setup - Install runtime dependency
 
 	> sudo apt-get install npm
 	> sudo apt-get install nodejs-legacy
 	> npm install
 	> cd source/front-end
-        > bower install
+	> bower install
+	> sudo apt-get install wiringpi
+	> sudo apt-get install i2c-tools
+	> sudo apt-get install alsa-utils
+	> sudo apt-get install sox
+	> sudo apt-get install iceweasel
+	> sudo apt-get install xdotool
+	> sudo apt-get install arduino
 
-## Setup Serial port port config (TTY)
+## Sensor 1 - ADPS 9960 Gesture sensor
+
+	> cd source/sensors/apds9960
+	> make clean
+	> make
+	> gpio load i2c       # The error/warning may be ignored, if I2C already loaded.
+	> gpio edge 7 falling
+	> sudo ./GestureSensor
+
+## Sensor 2 - ZX Gesture Sensor
+
+Setup Serial port port config (TTY)
 
 Make the file `source/back-end/GestureAnalyzer.js` point to the correct serial port to reach the Arduino.
 
@@ -14,15 +32,10 @@ Ex.
 
 	DEFAULT_TTY_PORT = "/dev/ttyACM0";
 
-## Gotchas. Default recording device need some config to work
+Upload code on the Arduino. The code is located in `source/sensors/zxGestureSensor`
 
-```bash
-> arecord -l
-> export AUDIODEV=hw:1,0
-> amixer cset numid=3 2
-```
 
-## Where to store ALSA custom configuration to identify playback device
+## Sound Playback - Where to store ALSA custom configuration to identify playback device
 
 A must read: [http://www.alsa-project.org/main/index.php/Asoundrc]
 
@@ -34,7 +47,15 @@ Example:
 	> sudo /etc/init.d/alsa-utils reset
 
 
-## Sample session with `arecord`
+## Sound Recording - Gotchas. Default recording device need some config to work
+
+```bash
+> arecord -l
+> export AUDIODEV=hw:1,0
+> amixer cset numid=3 2
+```
+
+## Sound Recording - Sample session with `arecord`
 
 	> arecord -l
 	**** List of CAPTURE Hardware Devices ****
@@ -111,12 +132,24 @@ User your `hw:2,0` string in source file `source/back-end/SoundRecorder.js` at l
 	ChildProcess.exec(command, {env: {AUDIODEV: "hw:2,0"}}, function(error, stdout, stderr) {
 
 
-## Nuance Speach Setup
+## Speech - Nuance Speech-to-Text and Text-to-Speech Setup
 
 Edit `configuration.json` to provide your Nuance credential.
 
-## Launching the app
+## Web Server - Launching the Web Server
 
 Use the command `node bootstrap.js`.
 
-Alternatively, just call the `./go.sh` script which does that.
+## Helper - Start everything at once
+
+Use the `go.sh` script to do everything.
+
+  1. Start IceWeasel with default page
+  2. Disable ScreenSave
+  3. Hide Mouse cursor
+  4. Start the server
+
+## Gotchas! Missing image at init
+
+I have notice at startup the listening image is not showing up.
+But, after the first recording, everything is in sync again.

@@ -1,5 +1,7 @@
 var MagicMirror = require("./source/back-end/MagicMirror");
-var GestureAnalyzer = require("./source/back-end/GestureAnalyzer");
+
+// var GestureAnalyzer = require("./source/back-end/GestureAnalyzer");
+var GestureAnalyzer = require("./source/back-end/GestureAnalyzerApds9960");
 
 var mirror = new MagicMirror();
 var gestureAnalyzer;

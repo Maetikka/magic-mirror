@@ -123,7 +123,9 @@ console.log("Mirror> Language:", request.body);
 Mirror.prototype.handleGesture = function handle(gesture, callback) {
 	var self = this, own = self;
 
-	if(true/* TODO: actually handle "up" gesture */ || gesture.swipe && gesture.swipe === "up") {
+	if (gesture.swipe === 'far' || gesture.swipe === 'near') {
+		own.soundPlayer.play({file: "synthesis.wav"});
+        } else if (true/* TODO: actually handle "up" gesture */ || gesture.swipe && gesture.swipe === "up") {
 		var sequence = [
 			recordSpeech,
 			sendSpeechForTextRecognition,
