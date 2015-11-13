@@ -171,7 +171,7 @@ Mirror.prototype.handleGesture = function handle(gesture, callback) {
 			Nuance.sendTextForSpeechSynthesis(text, options, callback);
 
 			// Hack for switching from French to English, and back...
-			if(new RegExp("\\b(aim|voudr).+\\bparl(é|er).+\\banglais", "i").test(text)) {
+			if(new RegExp("\\b(aim|voudr|veu).+\\bparl(é|er).+\\banglais", "i").test(text)) {
 				own.language = "en";
 			}
 			else if(new RegExp("\\b(like|love).+\\bspeak.+\\bfrench", "i").test(text)) {

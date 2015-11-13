@@ -26,7 +26,7 @@ SoundPlayer.prototype.play = function play(options, callback) {
 	log("SoundPlayer> Playing...");
 
 //	var command = "play -t s16 -r 16000 -c 1 ${file}";
-	var command = "aplay ${file}";
+	var command = "aplay --device=hw:2,0 ${file}";
 	command = helper.template(command)(options);
 
 	log("SoundPlayer> Command:", command);
