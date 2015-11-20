@@ -3,6 +3,7 @@ var EventEmitter = require("events").EventEmitter;
 var ChildProcess = require("child_process");
 var helper = require("lodash");
 
+var cfg = require(require("path").join(__dirname, "..", "..", "configuration.json"));
 
 function SoundPlayer() {
 	EventEmitter.call(this);
@@ -18,7 +19,8 @@ SoundPlayer.prototype.play = function play(options, callback) {
 	}
 
 	options = helper.merge({
-		file: "synthesis.wav"
+		file: "synthesis.wav",
+	      device: (cfg.audioDevice.playback ? "--device=" + cfg.audioDevice.playback : "")
 	}, options);
 
 //	options.input = options.input || FileSystem.createReadStream(options.file);
@@ -26,7 +28,9 @@ SoundPlayer.prototype.play = function play(options, callback) {
 	log("SoundPlayer> Playing...");
 
 //	var command = "play -t s16 -r 16000 -c 1 ${file}";
-	var command = "aplay --device=hw:2,0 ${file}";
+//	var command = 'aplay --device="hw:1,0" ${file}';
+	var command = 'aplay ${device} ${file}';
+
 	command = helper.template(command)(options);
 
 	log("SoundPlayer> Command:", command);

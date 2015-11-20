@@ -3,6 +3,7 @@ var EventEmitter = require("events").EventEmitter;
 var ChildProcess = require("child_process");
 var helper = require("lodash");
 
+var cfg = require(require("path").join(__dirname, "..", "..", "configuration.json"));
 
 function SoundRecorder() {
 	EventEmitter.call(this);
@@ -28,7 +29,7 @@ SoundRecorder.prototype.record = function record(options, callback) {
 
 	log("SoundRecorder> Command:", command);
 
-	ChildProcess.exec(command, {env: {AUDIODEV: "hw:1,0"}}, function(error, stdout, stderr) {
+	ChildProcess.exec(command, {env: {AUDIODEV: cfg.audioDevice.record}}, function(error, stdout, stderr) {
 		console.log('SndRec :: stdout => ' + stdout);
 		console.log('SndRec :: stderr => ' + stderr);
 

@@ -1,5 +1,5 @@
 #include <Wire.h>
-#include <ZX_Sensor.h>
+#include "ZX_Sensor.h"
 
 // Constants
 const int ZX_ADDR = 0x10;    // ZX Sensor I2C address
@@ -19,7 +19,7 @@ void setup() {
   gesture = NO_GESTURE;
 
   // Initialize Serial port
-  Serial.begin(115200);
+  Serial.begin(9600);
   Serial.println();
   Serial.println("---------------------------------------------");
   Serial.println("SparkFun/GestureSense - I2C Gesture Interrupt");

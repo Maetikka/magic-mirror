@@ -1,7 +1,10 @@
 var MagicMirror = require("./source/back-end/MagicMirror");
 
-// var GestureAnalyzer = require("./source/back-end/GestureAnalyzer");
-var GestureAnalyzer = require("./source/back-end/GestureAnalyzerApds9960");
+// Sensor Option #1 : ZX Distance and Gesture Sensor
+var GestureAnalyzer = require("./source/back-end/GestureAnalyzer");
+
+// Sensor Option #2 : APDS9960 RGB Gesture Sensor
+// var GestureAnalyzer = require("./source/back-end/GestureAnalyzerApds9960");
 
 var mirror = new MagicMirror();
 var gestureAnalyzer;
@@ -13,6 +16,9 @@ mirror.start(function() {
 
 		mirror.handleGesture(gesture);
 	});
+
+	// FIXME: Dirty trick to refresh page once the HTTP server is started.
+	require("child_process").exec(require("path").join(__dirname, "scripts", "refreshHomePage.sh"));
 });
 
 

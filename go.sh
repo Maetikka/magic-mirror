@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
-./scripts/openHomePage.sh &
+// Finally, We prefer to manually open the WebBrower
+// sinc this way the browser stay open when we restart this script
+// ./scripts/openHomePage.sh &
+
 ./scripts/screenSaverOff.sh
 ./scripts/hideMouseCursor.sh
 

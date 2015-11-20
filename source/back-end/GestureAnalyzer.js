@@ -2,8 +2,10 @@ var inherit = require("util").inherits;
 var EventEmitter = require("events").EventEmitter;
 var SerialPort = require("serialport").SerialPort;
 
-DEFAULT_TTY_PORT = "/dev/ttyACM0";
+var cfg = require(require("path").join(__dirname, "..", "..", "configuration.json"));
 
+var DEFAULT_TTY_PORT = cfg.sensorSerial.device || "/dev/ttyACM0";
+var DEFAULT_TTY_SPEED = cfg.sensorSerial.speed || 9600;            // Bauds
 
 function GestureAnalyzer(port) {
     var self = this, own = self;
@@ -11,7 +13,7 @@ function GestureAnalyzer(port) {
     EventEmitter.call(self);
 
     own.serialPort = new SerialPort(port || DEFAULT_TTY_PORT, {
-        baudrate: 115200
+        baudrate: DEFAULT_TTY_SPEED
     });
 
     var buffer = "";
@@ -31,7 +33,7 @@ function GestureAnalyzer(port) {
                     var result = self.processRow(row);
                     !result.error && self.emit("gesture", result);
                 }
-            })
+            });
         });
     });
 }
@@ -43,7 +45,7 @@ GestureAnalyzer.prototype.processRow = function processRow(row) {
     var result = {};
 
     try {
-        row = JSON.parse(row)
+        row = JSON.parse(row);
     } catch (error) {
         result.error = error;
     }
