@@ -50,7 +50,9 @@
   - Concentrateur USB
   - Clavier USB
   - Souris USB
-  
+
+  ![Schéma des composants](illustrations/magic-mirror-behind.jpg)
+
 ## Le Raspberry PI.
 
   *En bref:*
