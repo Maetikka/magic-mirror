@@ -34,7 +34,7 @@
   - Un miroir sans tain, ou en anglais un  «one way mirror» (Mirropane™)
   - L'écran:
     - Un moniteur d'ordinateur avec une prise HDMI
-    - Cable HDMI
+    - Câble HDMI
   - Le Raspberry PI:
     - Raspberry PI 2 – Model B
     - Carte uSD UHS-I, d'au moins 8 Go
@@ -43,10 +43,10 @@
   - Haut-Parleurs
   - L'Arduino
     - Arduino UNO
-    - Cable USB
+    - Câble USB
   - Senseur: 
     - [ZX Distance and Gesture Sensor](https://www.sparkfun.com/products/12780)
-  - Clef USB WiFi (alternativement une connection filaire RJ-45)
+  - Clef USB WiFi (alternativement une connexion filaire RJ-45)
   - Concentrateur USB
   - Clavier USB
   - Souris USB
@@ -98,7 +98,7 @@
 
     - Insérer la carte uSD dans le PI
     - Brancher l'écran au PI à l'aide du cable HDMI
-    - Branher les périphérique USB
+    - Branher les périphériques USB
       - Brancher la clef WiFi (ou mieux un lien filaire RJ-45)
       - Brancher le microphone
       - Brancher le Arduino UNO
@@ -109,10 +109,10 @@
 
   3. Configuration Internet
 
-     Si vous optez pour une connection filaire RJ-45, il n'y a rien à faire.
+     Si vous optez pour une connexion filaire RJ-45, il n'y a rien à faire.
      Sinon, pour un lien WiFi, on a utilisé la démarche suivante:
 
-     1. Cliquer sur l'icone réseau en haut à droite (2 écrans supperposés)
+     1. Cliquer sur l'icone réseau en haut à droite (2 écrans superposés)
      2. Cliquer sur votre point access (votre SSID)
      3. Entre le mot de passe de votre WiFi
 
@@ -120,7 +120,7 @@
 
      Dans un premier temps, il est extrêmement important de modifier le mot de passe du système puisqu'on est branché à Internet.
 
-     Dans un deuxième temps maximiser l'utilisation de la carte uSD et personnaliser les options selon vos préférences.
+     Dans un deuxième temps, maximiser l'utilisation de la carte uSD et personnaliser les options selon vos préférences.
 
      Voici comment nous avons personnalisé nos paramètres:
 
@@ -131,7 +131,7 @@
          - Cliquer [Expand Filesystem] pour utiliser tout l'espace sur la uSD
          - Cliquer [Change Password...]
            - Entrer le nouveau mot de passe
-         - Hostname: miroir (un nom personalisé)
+         - Hostname: miroir (un nom personnalisé)
          - Overscan: Disabled
        - Cliquer sur l'onglet [Localisation]
          - Cliquer [Set Locale...]
@@ -145,7 +145,7 @@
          - Country: United States
          - Variant: English (US)
 
-     **NOTE:*** Pour une raison inconnue, il n'est pas possible de faire tous les changement en une seule étape. Par exemple, après le «reboot», l'ancien nom de domaine est encore utilisé. De plus, le clavier revient toujours à UK.
+     **NOTE:** Pour une raison inconnue, il n'est pas possible de faire tous les changements en une seule étape. Par exemple, après le «reboot», l'ancien nom de domaine est encore utilisé. De plus, le clavier revient toujours à UK.
 
   5. Application des Mises à jour
 
@@ -276,7 +276,7 @@
 
   3. Test d'enregistrement
 
-     La commande qui suit va débuter l'enregistrer lorsque un augmentation du seuil audio de 5% ou plus sera détecté. Ensuite, l'enregistrement se terminera automatiquement à la détection d'une période de 2 secondes avec un seuil de 5% ou moins.
+     La commande qui suit va amorcer l'enregistrement au moment d'une augmentation du seuil audio de 5% ou plus. Ensuite, l'enregistrement se terminera automatiquement à la détection d'une période de 2 secondes avec un seuil de 5% ou moins.
 
          > AUDIODEV="hw:1" rec test.wav silence -l 1 0:00 5% 0 0:02 5%
 
@@ -456,15 +456,15 @@
 
   Normalement, a cette étape, on devrait avoir une fenêtre maximisée de Iceweasel avec le message suivant:
 
-      «Iceweasel can not establish a connection with the server localhost:8080»
+      «Iceweasel can not establish a connexion with the server localhost:8080»
 
   - Lancer le serveur
 
-   À partir d'une fenêtre de terminal, idéalement via une connection `ssh` au PI, aller à la racine du projet, dans `magic-mirror` et lancer l'application à l'aide du script `go.sh`.
+   À partir d'une fenêtre de terminal, idéalement via une connexion `ssh` au PI, aller à la racine du projet, dans `magic-mirror` et lancer l'application à l'aide du script `go.sh`.
 
    Le miroir magique est prêt à l'utilisation. 
 
-## Bricollage
+## Bricolage
 
    - Construction d'une structure pour maintenir l'écran contre le miroir sans tein.
    - On place la surface réfléchissante du côté opposé de l'écran (face au sujet)
@@ -492,7 +492,7 @@
 
 ## Les problèmes connus
 
-#### Fiabilité des connections USB
+#### Fiabilité des connexions USB
 
   Afin de tenter d'améliorer la stabilité du lien USB du microphone, nous avons utilisé un cable USB plus court et un concentrateur alimenté de 2500 mA.  Malgré ces précotions, il arrive parfois que l'entré/sortie du micro se bloque. Il faut alors débrancher et rebrancher le micro, mais avec l'interupteur sur le concentrateur cette manipulation est beaucoup moins pénible.
 
@@ -512,7 +512,7 @@
 
 #### Dépôt Raspbian non disponible.
 
-  Après l'installation de Jessy, le dépôt officile de Raspbian n'était pas accessible.
+  Après l'installation de Jessie, le dépôt officiel de Raspbian n'était pas accessible.
 
   Pour contourner le problème, nous avons utilisé un dépôt miroir situé à proximité.
 
@@ -520,9 +520,9 @@
 
   Au démarrage, on ne voit pas le bonhomme qui écoute au premier enregistrement.
 
-#### Le miroir fait des fautes d'orthographes
+#### Le miroir fait des fautes d'orthographe
 
-  Parmis les choix de chaines, il est fréquent qu'on tombe sur une avec des fautes d'orthographes évidentes. L'utilisation d'un correcteur orthographique pourrait nous aider à ne pas présenter aux enfants des fautes d'orthographe.
+  Parmi les choix de textes retournés, il est fréquent qu'on tombe sur un texte avec des fautes d'orthographe évidentes. L'utilisation d'un correcteur orthographique pourrait nous aider à ne pas présenter aux enfants des fautes d'orthographe.
 
 #### Troncature excessive
 
@@ -530,19 +530,19 @@
 
 ## Quelques adresses pour les achats
 
-  [BuyaPi.ca](buyapi.ca) (achat en ligne)
-  - [Raspberry Pi 2 - Model B](http://www.buyapi.ca/product/raspberry-pi-2-model-b-armv7-with-1g-ram/) @ _44$_
-  - [Kit Raspberry Pi 2 - Model B](http://www.buyapi.ca/product/raspberry-pi-2-b-starter-kit/) @ _76$_
-  REMARQUE: Aucun frais de livraison pour une commande de 200$ ou plus.
+  Sur [BuyaPi.ca](buyapi.ca) (achat en ligne)
+    - [Raspberry Pi 2 - Model B](http://www.buyapi.ca/product/raspberry-pi-2-model-b-armv7-with-1g-ram/) @ _44$_
+    - [Kit Raspberry Pi 2 - Model B](http://www.buyapi.ca/product/raspberry-pi-2-b-starter-kit/) @ _76$_
+    REMARQUE: Aucuns frais de livraison pour une commande de 200$ ou plus.
 
   ABRA Electronics (boutique à Montréal)
-  - [ZX Distance and Gesture Sensor](https://abra-electronics.com/sensors/sensors-proximity-en/sen-12780-zx-distance-and-gesture-sensor.html?currency=CAN) @ _33$_
-  - [Arduino UNO](https://abra-electronics.com/robotics-embedded-electronics/arduino-boards/ard-uno-arduino-uno-compatible-atmega16u2-board.html?currency=CAN) @ _20$_
+    - [ZX Distance and Gesture Sensor](https://abra-electronics.com/sensors/sensors-proximity-en/sen-12780-zx-distance-and-gesture-sensor.html?currency=CAN) @ _33$_
+    - [Arduino UNO](https://abra-electronics.com/robotics-embedded-electronics/arduino-boards/ard-uno-arduino-uno-compatible-atmega16u2-board.html?currency=CAN) @ _20$_
 
   Vitrier
-  - [Mirropane™](http://www.pilkington.com/north-america/usa/english/products/bp/bybenefit/specialapplications/mirropane/literature.htm) @ approx 25$ le pied carrée
+    - [Mirropane™](http://www.pilkington.com/north-america/usa/english/products/bp/bybenefit/specialapplications/mirropane/literature.htm) @ approx 25$ le pied carré
 
   Dollarama
-  - Cable HDMI @ _2$_
-  - Cable USB à micro-USB @ _1$_
+    - Câble HDMI @ _2$_
+    - Câble USB à micro-USB @ _1$_
 
