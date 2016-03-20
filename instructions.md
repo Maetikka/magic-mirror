@@ -484,7 +484,7 @@
 
 #### Sortie audio USB.
 
-  Pour un son plus puissant, nous avons branché un vieux système audio USB de Microsoft. Le résultat est une excellent qualité sonore et une expérience plus immersive.
+  Pour un son plus puissant, nous avons branché un vieux système audio USB de Microsoft. Le résultat est une excellente qualité sonore et une expérience plus immersive.
 
 #### Utilisation d'un téléviseur
 
@@ -494,7 +494,7 @@
 
 #### Fiabilité des connexions USB
 
-  Afin de tenter d'améliorer la stabilité du lien USB du microphone, nous avons utilisé un cable USB plus court et un concentrateur alimenté de 2500 mA.  Malgré ces précotions, il arrive parfois que l'entré/sortie du micro se bloque. Il faut alors débrancher et rebrancher le micro, mais avec l'interupteur sur le concentrateur cette manipulation est beaucoup moins pénible.
+  Afin de tenter d'améliorer la stabilité du lien USB du microphone, nous avons utilisé un cable USB plus court et un concentrateur alimenté de 2500 mA.  Malgré ces précautions, il arrive parfois que l'entré/sortie du micro se bloque. Il faut alors débrancher et rebrancher le micro, mais avec l'interupteur sur le concentrateur cette manipulation est beaucoup moins pénible.
 
   À la console de notre serveur on observe la trace suivant lorsque le micro USB se bloque.
 
@@ -531,18 +531,22 @@
 ## Quelques adresses pour les achats
 
   Sur [BuyaPi.ca](buyapi.ca) (achat en ligne)
+
     - [Raspberry Pi 2 - Model B](http://www.buyapi.ca/product/raspberry-pi-2-model-b-armv7-with-1g-ram/) @ _44$_
     - [Kit Raspberry Pi 2 - Model B](http://www.buyapi.ca/product/raspberry-pi-2-b-starter-kit/) @ _76$_
     REMARQUE: Aucuns frais de livraison pour une commande de 200$ ou plus.
 
   ABRA Electronics (boutique à Montréal)
+
     - [ZX Distance and Gesture Sensor](https://abra-electronics.com/sensors/sensors-proximity-en/sen-12780-zx-distance-and-gesture-sensor.html?currency=CAN) @ _33$_
     - [Arduino UNO](https://abra-electronics.com/robotics-embedded-electronics/arduino-boards/ard-uno-arduino-uno-compatible-atmega16u2-board.html?currency=CAN) @ _20$_
 
   Vitrier
+
     - [Mirropane™](http://www.pilkington.com/north-america/usa/english/products/bp/bybenefit/specialapplications/mirropane/literature.htm) @ approx 25$ le pied carré
 
   Dollarama
+
     - Câble HDMI @ _2$_
     - Câble USB à micro-USB @ _1$_
 
