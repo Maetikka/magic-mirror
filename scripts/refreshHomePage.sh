@@ -10,6 +10,6 @@ else
   export DISPLAY=:0
   WIN_ID="$(xdotool search --sync --all --onlyvisible --name iceweasel)"
   xdotool key --window ${WIN_ID} "F5"
-  echo "Refresh send to iceweasel"
+  echo "Refresh (F5 Key press) send to iceweasel"
 fi
   
